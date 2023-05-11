@@ -1,27 +1,18 @@
-//This is a CSS class for left navbar
 const menuEmail = document.querySelector('.navbar-email');
-
-//This is a HTML class for desktop menu
 const desktopMenu = document.querySelector('.desktop-menu');
-
-//This is a HTML class for mobile menu
 const menuhamicon = document.querySelector('.menu');
-
-// This is a CSS class for the mobile menu
 const mobilemenu = document.querySelector('.mobile-menu');
-
-// This is a html class for the shopping css
 const menucarritoicon = document.querySelector('.navbar-shopping-cart');
-
-//This is a CSS class for the shopping html
 const aside = document.querySelector('.product-detail');
-
 const cardsContainer=document.querySelector('.cards-container');
-
+const openProductDetailContainer = document.querySelector('.product-detail-secondary')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
+const productdetail = document.querySelector('.product-detail')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuhamicon.addEventListener('click', togglemobilemenu);
 menucarritoicon.addEventListener('click', togglemenucarritoaside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 
 function toggleDesktopMenu(){
@@ -44,9 +35,23 @@ function togglemenucarritoaside(){
     const ismobilemenuclosed = mobilemenu.classList.contains('inactive');
     
     if (!ismobilemenuclosed){
-        mobilemenu.classList.add('inactive')}
+        mobilemenu.classList.add('inactive')};
+    
+    const isProductDetailClosed = ProductDetailContainer.classList.contains('inactive');
+    
+    if (!isProductDetailClosed){
+        ProductDetailContainer.classList.add('inactive')};
 
     aside.classList.toggle('inactive');
+}
+
+function openProductDetailaside(){
+    productdetail.classList.add('inactive');
+    openProductDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    openProductDetailContainer.classList.add('inactive')
 }
 
 const productList = [];
@@ -83,10 +88,12 @@ function renderProducts(arr){
     for (product of arr){
         const productcard = document.createElement('div');
         productcard.classList.add('product-card');
-    
+
+    // product = {name, price, img} => product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.img)
-        // product = {name, price, img} => product.image
+        productImg.addEventListener('click', openProductDetailaside)
+        
     
         const productinfo = document.createElement('div');
         productinfo.classList.add('product-info');
