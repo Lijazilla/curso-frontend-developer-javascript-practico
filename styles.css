@@ -64,6 +64,7 @@ nav {
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
+    z-index: 100;
 }
 .navbar-shopping-cart {
     position: relative;
@@ -94,6 +95,7 @@ nav {
     }
     .desktop-menu{
         display: none;
+        z-index: 3;
     }
     .product-detail {
         width: 100%;
@@ -102,6 +104,7 @@ nav {
     /* Cards containers product******************* */
     .cards-container {
         grid-template-columns: repeat(auto-fill, 140px);
+        z-index: 1;
     }
     .product-card {
         width: 140px;
@@ -130,6 +133,7 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    z-index: 3;
 }   
 .desktop-menu ul {
     list-style: none;
@@ -203,6 +207,7 @@ nav {
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    z-index: 4;
 }
 .title-container {
     display: flex;
@@ -279,6 +284,8 @@ nav {
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
+    z-index: 1;
+    position: relative;
 }
 .product-card {
     width: 240px;
@@ -319,11 +326,16 @@ nav {
 
 .product-detail-secondary{
     position: absolute;
-    width: 360px;
-    padding: 0 24px;
+    width: 320px;
+    padding: 0 px;
     box-sizing: border-box;
     right: 0;
     z-index: 2;
+    margin-top: 100px;
+    background: var(--white);
+
+    top: 0; right: 14px; z-index: 100;  
+    
 }
 
 .product-detail-close {
@@ -332,7 +344,7 @@ nav {
     height: 14px;
     position: absolute;
     top: 2px;
-    left: 28px;
+    left: 2px;
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
